@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payslip</title>
+    <script>
+        function calculatePayslip() {
+            const basicSalary = 37900;
+            const workingDays = 30;
+            const daysPresent = parseInt(document.getElementById("daysPresent").value);
+            
+            if (isNaN(daysPresent) || daysPresent < 0 || daysPresent > workingDays) {
+                alert("Please enter a valid number of days present (between 0 and 30).");
+                return false;
+            }
+
+            const salary = (basicSalary / workingDays) * daysPresent;
+            const dns = 0.09 * basicSalary;
+            let hra = 0;
+            let roomType = document.querySelector('input[name="roomType"]:checked');
+            if (roomType) {
+                if (roomType.value === "hostel") {
+                    hra = 0.3 * basicSalary;
+                } else if (roomType.value === "room") {
+                    hra = 0.2 * basicSalary;
+                } else {
+                    hra = 0;
+                }
+            }
+
+            document.getElementById("result").innerHTML = `
+                <h3>Employee Payslip</h3>
+                <p><strong>Basic Salary:</strong> ₹${basicSalary}</p>
+                <p><strong>Days Present:</strong> ${daysPresent} out of ${workingDays}</p>
+                <p><strong>Salary for the month:</strong> ₹${salary}</p>
+                <p><strong>DNS (9% of Basic Salary):</strong> ₹${dns}</p>
+                <p><strong>HRA:</strong> ₹${hra}</p>
+                <p><strong>Total Salary:</strong> ₹${salary + hra - dns}</p>
+            `;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Employee Payslip Form</h2>
+
+    <form onsubmit="return calculatePayslip()">
+        <label for="daysPresent">Number of Days Present (out of 30):</label><br>
+        <input type="number" id="daysPresent" name="daysPresent" min="0" max="30" required><br><br>
+
+        <label>Room Type for HRA:</label><br>
+        <input type="radio" id="hostel" name="roomType" value="hostel" required> Hostel (30% of Basic Salary)<br>
+        <input type="radio" id="room" name="roomType" value="room"> Room (20% of Basic Salary)<br>
+        <input type="radio" id="home" name="roomType" value="home"> Home (No HRA)<br><br>
+
+        <button type="submit">Calculate Payslip</button>
+    </form>
+
+    <div id="result"></div>
+
+</body>
+</html>

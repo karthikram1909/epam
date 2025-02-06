@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration Form</title>
+    <script>
+        function validateLogin() {
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+            if (username == "" || password == "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+            return true;
+        }
+
+        function validateRegistration() {
+            var dob = document.getElementById('dob').value;
+            if (dob == "") {
+                alert("Please select your date of birth.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Login Form</h2>
+    <form onsubmit="return validateLogin()">
+        <label for="loginUsername">Username:</label><br>
+        <input type="text" id="loginUsername" name="username" required><br>
+        <label for="loginPassword">Password:</label><br>
+        <input type="password" id="loginPassword" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>Registration Form</h2>
+    <form onsubmit="return validateRegistration()">
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+
+</body>
+</html>

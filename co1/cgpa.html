@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Eligibility</title>
+    <style>
+        .not-eligible {
+            background-color: red;
+            color: white;
+            padding: 20px;
+        }
+        .maybe-eligible {
+            background-color: orange;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Placement Eligibility</h1>
+
+    <script>
+        var students = [
+            {name: "John", cgpa: 7.3},
+            {name: "Alice", cgpa: 8.0},
+            {name: "Bob", cgpa: 7.6},
+            {name: "Emma", cgpa: 6.9},
+            {name: "Liam", cgpa: 7.4}
+        ];
+
+        students.forEach(student => {
+            var studentDiv = document.createElement("div");
+            studentDiv.textContent = `${student.name}: CGPA - ${student.cgpa}`;
+
+            if (student.cgpa >= 7.2 && student.cgpa <= 7.5) {
+                studentDiv.classList.add("not-eligible");
+            } else if (student.cgpa > 7.5 && student.cgpa <= 8.5) {
+                studentDiv.classList.add("maybe-eligible");
+            }
+
+            document.body.appendChild(studentDiv);
+        });
+    </script>
+
+</body>
+</html>

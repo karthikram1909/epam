@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Tables</title>
+</head>
+<body>
+    <h1>Demonstrating 5 Tables in HTML</h1>
+
+    <h2>Table 1: Basic Table</h2>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Alice</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>30</td>
+        </tr>
+    </table>
+
+    <h2>Table 2: Table with rowspan and colspan</h2>
+    <table border="1">
+        <tr>
+            <th rowspan="2">Product</th>
+            <th colspan="2">Price</th>
+        </tr>
+        <tr>
+            <th>USD</th>
+            <th>EUR</th>
+        </tr>
+        <tr>
+            <td>Laptop</td>
+            <td>1000</td>
+            <td>900</td>
+        </tr>
+    </table>
+
+    <h2>Table 3: Table with nested table</h2>
+    <table border="1">
+        <tr>
+            <th>Country</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>USA</td>
+            <td>
+                <table border="1">
+                    <tr>
+                        <th>State</th>
+                        <th>Capital</th>
+                    </tr>
+                    <tr>
+                        <td>California</td>
+                        <td>Sacramento</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Table 4: Table with CSS Styling</h2>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>$800</td>
+        </tr>
+        <tr>
+            <td>Headphones</td>
+            <td>$200</td>
+        </tr>
+    </table>
+
+    <h2>Table 5: Table with Alternating Row Colors</h2>
+    <style>
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <table border="1">
+        <tr>
+            <th>Student</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>Emma</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>Liam</td>
+            <td>A</td>
+        </tr>
+    </table>
+</body>
+</html>
